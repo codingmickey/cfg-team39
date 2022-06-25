@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import Product from '../components/Product';
-import Paginate from '../components/Paginate';
-import { Row, Col } from 'react-bootstrap';
-import ProductCarousel from '../components/ProductCarousel';
-import Meta from '../components/Meta';
-import { listProducts } from '../actions/productActions';
-import { refreshLogin, getUserDetails } from '../actions/userActions';
-import Message from '../components/Message';
-import SearchBox from '../components/SearchBox';
-import ProductSkeleton from '../components/ProductSkeleton';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Product from "../components/Product";
+import Paginate from "../components/Paginate";
+import { Row, Col } from "react-bootstrap";
+import ProductCarousel from "../components/ProductCarousel";
+import Meta from "../components/Meta";
+import { listProducts } from "../actions/productActions";
+import { refreshLogin, getUserDetails } from "../actions/userActions";
+import Message from "../components/Message";
+import SearchBox from "../components/SearchBox";
+import ProductSkeleton from "../components/ProductSkeleton";
 
 const HomePage = ({ match, history }) => {
 	const keyword = match.params.keyword; // to search for products
@@ -35,14 +35,14 @@ const HomePage = ({ match, history }) => {
 		userInfo
 			? userInfo.isSocialLogin
 				? dispatch(getUserDetails(userInfo.id))
-				: dispatch(getUserDetails('profile'))
-			: dispatch(getUserDetails('profile'));
+				: dispatch(getUserDetails("profile"))
+			: dispatch(getUserDetails("profile"));
 	}, [userInfo, dispatch]);
 
 	// refresh token to get new access token if error in user details
 	useEffect(() => {
 		if (userInfoError && userInfo && !userInfo.isSocialLogin) {
-			const user = JSON.parse(localStorage.getItem('userInfo'));
+			const user = JSON.parse(localStorage.getItem("userInfo"));
 			dispatch(refreshLogin(user?.email));
 		}
 	}, [userInfoError, dispatch, userInfo]);
@@ -50,9 +50,7 @@ const HomePage = ({ match, history }) => {
 	// set a state variable to true or false depending on if products is avialable in the state
 	useEffect(() => {
 		if (products) {
-			products.length
-				? setProductAvailable(true)
-				: setProductAvailable(false);
+			products.length ? setProductAvailable(true) : setProductAvailable(false);
 		}
 	}, [products]);
 
@@ -72,9 +70,7 @@ const HomePage = ({ match, history }) => {
 	// check if user needs to be promted about email verification on page load
 	useEffect(() => {
 		setPromptVerification(
-			localStorage.getItem('promptEmailVerfication') === 'true'
-				? true
-				: false
+			localStorage.getItem("promptEmailVerfication") === "true" ? true : false
 		);
 	}, []);
 
@@ -85,27 +81,25 @@ const HomePage = ({ match, history }) => {
 			{!keyword ? (
 				window.innerWidth > 430 && <ProductCarousel />
 			) : (
-				<Link
-					className='btn btn-outline btn-outline-primary my-2'
-					to='/'>
+				<Link className="btn btn-outline btn-outline-primary my-2" to="/">
 					Go Back
 				</Link>
 			)}
 			{/* display this search bar on home page on mobile screens */}
-			<div className='d-block d-md-none'>
+			<div className="d-block d-md-none">
 				<SearchBox history={history} />
 			</div>
 
 			{/* if the user needs to be prompted about email verification, show this message */}
 			{promptVerfication ? (
-				<Message dismissible variant='info' duration={10}>
-					Account Created! Please check your email to verify your
-					account and start shopping.
+				<Message dismissible variant="info" duration={10}>
+					Account Created! Please check your email to verify your account and
+					start exploring.
 				</Message>
 			) : null}
 
 			{error ? (
-				<Message dismissible variant='danger' duration={10}>
+				<Message dismissible variant="danger" duration={10}>
 					{error}
 				</Message>
 			) : !loading && products ? (
@@ -114,12 +108,7 @@ const HomePage = ({ match, history }) => {
 						{products.length
 							? products.map((product) => {
 									return (
-										<Col
-											sm={12}
-											md={6}
-											lg={4}
-											xl={3}
-											key={product._id}>
+										<Col sm={12} md={6} lg={4} xl={3} key={product._id}>
 											<Product product={product} />
 										</Col>
 									);
@@ -127,20 +116,19 @@ const HomePage = ({ match, history }) => {
 							: keyword &&
 							  !productAvailable && (
 									//   show this only if user has searched for some item and it is not available
-									<Col className='text-center'>
+									<Col className="text-center">
 										<div>
-											<i className='far fa-frown' /> No
-											items found for this search query
+											<i className="far fa-frown" /> No items found for this
+											search query
 										</div>
-										Go Back to the{' '}
-										<Link to='/'>Home Page</Link>
+										Go Back to the <Link to="/">Home Page</Link>
 									</Col>
 							  )}
 					</Row>
 					<Paginate
-						className='mt-auto text-center'
+						className="mt-auto text-center"
 						page={pageNumber}
-						keyword={keyword ? keyword : ''}
+						keyword={keyword ? keyword : ""}
 						pages={pages}
 					/>
 				</>

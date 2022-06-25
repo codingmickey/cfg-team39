@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { logoutUser } from '../actions/userActions';
-import { Route } from 'react-router-dom';
-import SearchBox from './SearchBox';
-import '../styles/header.css';
+import React, { useState, useEffect } from "react";
+import { LinkContainer } from "react-router-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { logoutUser } from "../actions/userActions";
+import { Route } from "react-router-dom";
+import SearchBox from "./SearchBox";
+import "../styles/header.css";
 
 const Header = () => {
 	const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const Header = () => {
 	// dispatch action to logout user
 	const handleLogout = () => {
 		dispatch(logoutUser());
-		window.location.href = '/';
+		window.location.href = "/";
 	};
 
 	// render different navbars for large and small screens without navbar toggle
@@ -54,16 +54,14 @@ const Header = () => {
 		<header>
 			{/* this section covers entire screen except the dropdown, to handle onclicks */}
 			<section
-				className='navbar-dropdown-cover'
+				className="navbar-dropdown-cover"
 				style={{
 					display:
-						window.innerHeight > 430 && (show1 || show2)
-							? 'block'
-							: 'none',
-					minWidth: '100%',
-					height: '100%',
-					zIndex: '100',
-					position: 'absolute',
+						window.innerHeight > 430 && (show1 || show2) ? "block" : "none",
+					minWidth: "100%",
+					height: "100%",
+					zIndex: "100",
+					position: "absolute"
 				}}
 				onClick={() => {
 					setShow1(false);
@@ -72,107 +70,111 @@ const Header = () => {
 			/>
 
 			{/* conditionally render different navbars for the mobile sreens */}
-			<Navbar bg='primary' variant='dark' expand='lg'>
+			<Navbar bg="primary" variant="dark" expand="lg">
 				<Container>
-					<LinkContainer to='/'>
+					<LinkContainer to="/">
 						<Navbar.Brand>
-							<img
-								src='/images/kosells.png'
-								className='nav-logo'
-								alt='logo'
-							/>
-							Kosells
+							{/* <img
+								src="/images/logo.jpeg"
+								className="nav-logo"
+								alt="logo"
+								width="2rem"
+							/> */}
+							Banglore Food Bank
 						</Navbar.Brand>
 					</LinkContainer>
 
 					{/* history is available only inside Route, so this is used */}
 					{/* display searchbar inside navbar in large screens only */}
-					<Route
+					{/* <Route
 						render={({ history }) => (
-							<div className='d-none d-md-block'>
+							<div className="d-none d-md-block">
 								<SearchBox history={history} />
 							</div>
 						)}
-					/>
+					/> */}
 
 					<Nav
-						className='ms-auto nav-mobile'
+						className="ms-auto nav-mobile"
 						style={
 							userInfo
 								? {
-										justifyContent: 'space-between',
+										justifyContent: "space-between"
 								  }
 								: {
-										justifyContent: 'space-evenly',
+										justifyContent: "space-evenly"
 								  }
-						}>
+						}
+					>
 						{userInfo && userInfo.isAdmin && (
 							<>
 								{/* display this only on mobile screens */}
 								<LinkContainer
-									className='d-block d-md-none'
-									to='/admin/userlist'>
+									className="d-block d-md-none"
+									to="/admin/userlist"
+								>
 									<Nav.Link>
-										<i className='fas fa-users' />
+										<i className="fas fa-users" />
 									</Nav.Link>
 								</LinkContainer>
 								<LinkContainer
-									className='d-block d-md-none'
-									to='/admin/orderlist'>
+									className="d-block d-md-none"
+									to="/admin/orderlist"
+								>
 									<Nav.Link>
-										<i className='fas fa-user-shield' />
+										<i className="fas fa-user-shield" />
 									</Nav.Link>
 								</LinkContainer>
 								<LinkContainer
-									className='d-block d-md-none'
-									to='/admin/productlist'>
+									className="d-block d-md-none"
+									to="/admin/productlist"
+								>
 									<Nav.Link>
-										<i className='fas fa-shopping-bag' />
+										<i className="fas fa-shopping-bag" />
 									</Nav.Link>
 								</LinkContainer>
 							</>
 						)}
-						<LinkContainer to='/cart'>
+						<LinkContainer to="/cart">
 							<Nav.Link>
 								{/* indicate cart size */}
 								{count ? (
-									<div className='nav-cart-size'>
+									<div className="nav-cart-size">
 										<span
 											style={
 												count > 10
-													? { fontSize: '0.6em' }
-													: { fontSize: '0.7em' }
-											}>
+													? { fontSize: "0.6em" }
+													: { fontSize: "0.7em" }
+											}
+										>
 											{count}
 										</span>
 									</div>
 								) : (
-									''
+									""
 								)}
-								<i className='fas fa-shopping-cart navbar-icons' />{' '}
-								{!(userInfo && userInfo.isAdmin) ||
-								window.innerWidth >= 430
-									? 'Cart'
-									: ''}
+								<i className="fas fa-shopping-cart navbar-icons" />{" "}
+								{!(userInfo && userInfo.isAdmin) || window.innerWidth >= 430
+									? "Cart"
+									: ""}
 							</Nav.Link>
 						</LinkContainer>
 						{userInfo && userInfo.isAdmin && (
 							// show this only on md screens and above
 							<NavDropdown
-								className='d-none d-md-block'
-								title='Admin'
-								id='adminMenu'
+								className="d-none d-md-block"
+								title="Admin"
+								id="adminMenu"
 								show={show2}
-								onClick={handleDropdown2}>
-								<LinkContainer to='/admin/userlist'>
+								onClick={handleDropdown2}
+							>
+								<LinkContainer to="/admin/userlist">
 									<NavDropdown.Item>Users</NavDropdown.Item>
 								</LinkContainer>
-								<LinkContainer to='/admin/productlist'>
-									<NavDropdown.Item>
-										Products
-									</NavDropdown.Item>
+								<LinkContainer to="/admin/productlist">
+									<NavDropdown.Item>Products</NavDropdown.Item>
 								</LinkContainer>
-								<LinkContainer to='/admin/orderlist'>
+								<LinkContainer to="/admin/orderlist">
 									<NavDropdown.Item>Orders</NavDropdown.Item>
 								</LinkContainer>
 							</NavDropdown>
@@ -180,45 +182,40 @@ const Header = () => {
 
 						{userInfo && (
 							// show this only on mobile screens
-							<Nav.Link
-								className='d-block d-md-none'
-								onClick={handleLogout}>
-								<i className='fas fa-sign-out-alt navbar-icons' />{' '}
-								{!(userInfo && userInfo.isAdmin) && 'Logout'}
+							<Nav.Link className="d-block d-md-none" onClick={handleLogout}>
+								<i className="fas fa-sign-out-alt navbar-icons" />{" "}
+								{!(userInfo && userInfo.isAdmin) && "Logout"}
 							</Nav.Link>
 						)}
 
 						{userInfo ? (
-							<div className='nav-avatar-container'>
+							<div className="nav-avatar-container">
 								{/* show this container only on mobile screens */}
-								<LinkContainer
-									to='/profile'
-									className='d-block d-md-none'>
+								<LinkContainer to="/profile" className="d-block d-md-none">
 									<Nav.Link>
 										<img
 											src={userInfo.avatar}
-											className='nav-avatar'
+											className="nav-avatar"
 											alt={userInfo.name}
 										/>
 									</Nav.Link>
 								</LinkContainer>
 								<img
 									src={userInfo.avatar}
-									className='nav-avatar d-none d-md-block'
+									className="nav-avatar d-none d-md-block"
 									alt={userInfo.name}
 								/>
 
 								{/* show this dropdown only on large screens */}
 								<NavDropdown
-									className='d-none d-md-block'
+									className="d-none d-md-block"
 									title={userInfo.name}
 									id={userInfo.id}
 									show={show1}
-									onClick={handleDropdown1}>
-									<LinkContainer to='/profile'>
-										<NavDropdown.Item>
-											Profile
-										</NavDropdown.Item>
+									onClick={handleDropdown1}
+								>
+									<LinkContainer to="/profile">
+										<NavDropdown.Item>Profile</NavDropdown.Item>
 									</LinkContainer>
 									<NavDropdown.Item onClick={handleLogout}>
 										Logout
@@ -226,10 +223,9 @@ const Header = () => {
 								</NavDropdown>
 							</div>
 						) : (
-							<LinkContainer to='/login' variant='primary'>
+							<LinkContainer to="/login" variant="primary">
 								<Nav.Link>
-									<i className='fas fa-user navbar-icons' />{' '}
-									Sign In
+									<i className="fas fa-user navbar-icons" /> Sign In
 								</Nav.Link>
 							</LinkContainer>
 						)}
