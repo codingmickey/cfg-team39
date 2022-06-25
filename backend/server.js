@@ -13,6 +13,8 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
+// import campaignRoutes from "./routes/campaignRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -38,7 +40,10 @@ app.use(compression()); // to use gzip
 // configure all the routes
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 // app.use('/api/auth', authRoutes);
+// app.use("/api/config", configRoutes);
+// app.use("/api/upload", uploadRoutes);
 
 const __dirname = path.resolve();
 
