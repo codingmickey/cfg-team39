@@ -45,7 +45,7 @@ const PlaceOrderPage = ({ history }) => {
     if (success) {
       localStorage.removeItem("cartItems");
       dispatch({ type: CART_RESET, payload: shippingAddress }); // remove items from cart once paid, but keep the shipping address in store
-      history.push(`/order/${order._id}`);
+      history.push(`/`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [success, history]);

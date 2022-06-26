@@ -16,6 +16,7 @@ import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 // import campaignRoutes from "./routes/campaignRoutes.js";
 import generatePDF from "./generatePdf.js";
+// import paymentRoutes from "./routes/paymentRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -42,6 +43,7 @@ app.use(compression()); // to use gzip
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
+// app.use("/api/pay", paymentRoutes);
 // app.use("/api/campaign", campaignRoutes);
 // app.use('/api/auth', authRoutes);
 // app.use("/api/config", configRoutes);
