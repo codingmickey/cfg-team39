@@ -47,15 +47,14 @@ const ConfirmPage = ({ match, history }) => {
 		localStorage.setItem('fillEmailOnLoginPage', 'true');
 		return (
 			<Card style={{ border: 'none', margin: '0 auto' }}>
-				<Meta title='Confirm Password | Kosells' />
+				<Meta title='Confirm Password | BFB' />
 				<Card.Body>
 					<Card.Title>Account Confirmed</Card.Title>
 					<Card.Text>
 						{setIsLoggedIn
-							? 'Your account has been successfully verified! Go on and shop for the best deals of the day!'
+							? 'Your account has been successfully verified! Go on and donate!'
 							: `Your account has been successfully verified! Please
-						login and start exploring the best deals on all your
-						favorite products.`}
+						login and start exploring.`}
 					</Card.Text>
 					{!setIsLoggedIn ? <Link to='/login'>Login</Link> : null}
 				</Card.Body>
