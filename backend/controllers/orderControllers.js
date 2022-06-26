@@ -10,7 +10,15 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // @route GET /api/orders
 // @access PRIVATE
 const addOrderItems = asyncHandler(async (req, res) => {
-  const { orderItems, itemsPrice, totalPrice } = req.body;
+  const {
+    orderItems,
+    shippingAddress,
+    paymentMethod,
+    itemsPrice,
+    shippingPrice,
+    taxPrice,
+    totalPrice
+  } = req.body;
 
   if (orderItems && !orderItems.length) {
     res.status(401);
@@ -19,8 +27,11 @@ const addOrderItems = asyncHandler(async (req, res) => {
     const order = new Order({
       user: req.user._id,
       orderItems,
+      shippingAddress,
       paymentMethod,
       itemsPrice,
+      shippingPrice,
+      taxPrice,
       totalPrice
     });
     const createdOrder = await order.save();

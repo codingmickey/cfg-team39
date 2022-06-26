@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Product from "../components/Product";
 import Paginate from "../components/Paginate";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import ProductCarousel from "../components/ProductCarousel";
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
@@ -80,6 +80,7 @@ const HomePage = ({ match, history }) => {
 
 	return (
 		<>
+		
 			<Meta />
 
 			{/* display carousel only on larger screens */}
