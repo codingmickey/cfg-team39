@@ -31,46 +31,111 @@ import Button from "@mui/material/Button";
 /* eslint-disable no-restricted-globals */
 import { Link } from "react-router-dom";
 import image1 from "../assets/foodlogo.jpg";
+import image2 from "../assets/jplogo.jpeg";
+import image3 from "../assets/foodlogo3.png";
 
 function ResponsiveGrid() {
 	return (
-		<Box sx={{ flexGrow: 1, flexShrink: 2 }}>
-			<Grid
-				container
-				spacing={{ xs: 2, md: 2 }}
-				columns={{ xs: 8, sm: 12, md: 8 }}
-			>
-				{Array.from(Array(8)).map((_, index) => (
-					<Grid item xs={2} sm={2} md={2} key={index} zeroMinWidth>
-						<Card sx={{ maxWidth: 345 }}>
-							<CardActionArea>
-								<CardMedia
-								// component="img"
-								// height="140"
-								// image="/images/foodlogo.jpeg"
-								// alt="food campaign"
-								>
-									<img
-										src={image1}
-										style={{ width: "60%", height: "100px" }}
-										alt="_image"
-									/>
-								</CardMedia>
-								<CardContent>
-									<Typography gutterBottom variant="h5" component="div">
-										Food Campaigns
-									</Typography>
-									<Typography variant="body2" color="text.secondary">
-										Food Campaigns are a widespread group of squamate reptiles,
-										with over 6,000 species, ranging across all continents
-										except Antarctica
-									</Typography>
-									<Button variant="contained">Contribute for Campaign</Button>
-								</CardContent>
-							</CardActionArea>
-						</Card>
-					</Grid>
-				))}
+		<Box>
+			<Grid container spacing={{ xs: 2 }} columns={{ xs: 8, sm: 12, md: 6 }}>
+				{/* {data.from(Array(3)).map((_, index) => ( */}
+				<Grid item xs={2} sm={2} zeroMinWidth>
+					<Card sx={{ maxWidth: 345 }}>
+						<CardActionArea>
+							<CardMedia
+							// component="img"
+							// height="140"
+							// image="/images/foodlogo.jpeg"
+							// alt="food campaign"
+							>
+								<img
+									src={image1}
+									style={{ width: "60%", height: "140px" }}
+									alt="_image"
+								/>
+							</CardMedia>
+							<CardContent>
+								<Typography gutterBottom variant="h5" component="div">
+									Food for Change
+								</Typography>
+								<Typography variant="body2" color="text.secondary" wrap>
+									Food Campaigns are a widespread group of squamate reptiles,
+									with over 6,000 species, ranging across all continents except
+									Antarctica
+								</Typography>
+								<br />
+								<Button variant="contained" sx={{ backgroundColor: "#eb5310" }}>
+									Contribute for Campaign
+								</Button>
+							</CardContent>
+						</CardActionArea>
+					</Card>
+				</Grid>
+				<Grid item xs={2} sm={2} zeroMinWidth>
+					<Card sx={{ maxWidth: 345 }}>
+						<CardActionArea>
+							<CardMedia
+							// component="img"
+							// height="140"
+							// image="/images/foodlogo.jpeg"
+							// alt="food campaign"
+							>
+								<img
+									src={image2}
+									style={{ width: "100%", height: "140px" }}
+									alt="_image"
+								/>
+							</CardMedia>
+							<CardContent>
+								<Typography gutterBottom variant="h5" component="div">
+									JP Food Campaigns
+								</Typography>
+								<Typography variant="body2" color="text.secondary" wrap>
+									Food Campaigns are a widespread group of squamate reptiles,
+									with over 6,000 species, ranging across all continents except
+									Antarctica
+								</Typography>
+								<br />
+								<Button variant="contained" sx={{ backgroundColor: "#eb5310" }}>
+									Contribute for Campaign
+								</Button>
+							</CardContent>
+						</CardActionArea>
+					</Card>
+				</Grid>
+				<Grid item xs={2} sm={2} zeroMinWidth>
+					<Card sx={{ maxWidth: 345 }}>
+						<CardActionArea>
+							<CardMedia
+							// component="img"
+							// height="140"
+							// image="/images/foodlogo.jpeg"
+							// alt="food campaign"
+							>
+								<img
+									src={image3}
+									style={{ width: "60%", height: "140px" }}
+									alt="_image"
+								/>
+							</CardMedia>
+							<CardContent>
+								<Typography gutterBottom variant="h5" component="div">
+									Food Campaigns
+								</Typography>
+								<Typography variant="body2" color="text.secondary" wrap>
+									Food Campaigns are a widespread group of squamate reptiles,
+									with over 6,000 species, ranging across all continents except
+									Antarctica
+								</Typography>
+								<br />
+								<Button variant="contained" sx={{ backgroundColor: "#eb5310" }}>
+									Contribute for Campaign
+								</Button>
+							</CardContent>
+						</CardActionArea>
+					</Card>
+				</Grid>
+				{/* ))} */}
 			</Grid>
 		</Box>
 	);
@@ -93,7 +158,7 @@ export default function PermanentDrawerLeft() {
 			<AppBar
 				position="fixed"
 				sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-				style={{ backgroundColor: "#525D87" }}
+				style={{ backgroundColor: "#2c3e50" }}
 			>
 				<Toolbar>
 					<Typography variant="h6" noWrap component="div">
@@ -173,7 +238,7 @@ export default function PermanentDrawerLeft() {
 						</a>
 					</Link>
 					<Link to="/campaigns" style={{ textDecoration: "none" }}>
-						<a href="/campaigns/create" style={{ textDecoration: "none" }}>
+						<a href="/campaigns" style={{ textDecoration: "none" }}>
 							<ListItem disablePadding sx={{ display: "block" }}>
 								<ListItemButton
 									sx={{

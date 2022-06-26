@@ -44,7 +44,7 @@ function Copyright() {
 		<Typography variant="body2" color="text.secondary" align="center">
 			{"Copyright © "}
 			<Link color="inherit" href="https://mui.com/">
-				Your Website
+				Bangalore Food Bank
 			</Link>{" "}
 			{new Date().getFullYear()}
 			{"."}
@@ -99,10 +99,7 @@ function Checkout() {
 				</Toolbar>
 			</AppBar> */}
 			<Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-				<Paper
-					variant="outlined"
-					sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
-				>
+				<Paper variant="outlined" sx={{ my: { xs: 3 }, p: { xs: 2 } }}>
 					<Typography component="h1" variant="h4" align="center">
 						Start a Campaign
 					</Typography>
@@ -120,9 +117,9 @@ function Checkout() {
 									Thank you for your order.
 								</Typography>
 								<Typography variant="subtitle1">
-									Your order number is #2001539. We have emailed your order
-									confirmation, and will send you an update when your order has
-									shipped.
+									Your donation id is #2001539. We have emailed your donation
+									details, and will send you an update when your donation will
+									be contributed to society.
 								</Typography>
 							</React.Fragment>
 						) : (
@@ -138,9 +135,11 @@ function Checkout() {
 									<Button
 										variant="contained"
 										onClick={handleNext}
-										sx={{ mt: 3, ml: 1 }}
+										sx={{ mt: 3, ml: 1, backgroundColor: "#eb5310" }}
 									>
-										{activeStep === steps.length - 1 ? "Place order" : "Next"}
+										{activeStep === steps.length - 1
+											? "Confirm a campaign"
+											: "Next"}
 									</Button>
 								</Box>
 							</React.Fragment>
@@ -170,7 +169,7 @@ export default function PermanentDrawerLeft() {
 			<AppBar
 				position="fixed"
 				sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-				style={{ backgroundColor: "#525D87" }}
+				style={{ backgroundColor: "#2c3e50" }}
 			>
 				<Toolbar>
 					<Typography variant="h6" noWrap component="div">

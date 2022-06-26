@@ -8,7 +8,7 @@ const Footer = () => {
 			<footer className="footer-container">
 				<div className="footer-icons">
 					<a
-						href="https://github.com/Rajatm544"
+						href="#"
 						aria-label="github account"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -16,7 +16,7 @@ const Footer = () => {
 						<i className="fab fa-github footer-icon" />
 					</a>
 					<a
-						href="https://www.linkedin.com/in/rajat--m"
+						href="#"
 						aria-label="linkedin account"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -24,7 +24,7 @@ const Footer = () => {
 						<i className="fab fa-linkedin-in footer-icon" />
 					</a>
 					<a
-						href="https://twitter.com/Rajat__m"
+						href="#"
 						aria-label="twitter account"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -32,7 +32,7 @@ const Footer = () => {
 						<i className="fab fa-twitter footer-icon" />
 					</a>
 					<a
-						href="https://rajatm.netlify.app/"
+						href="#"
 						aria-label="developer portfolio"
 						target="_blank"
 						rel="noopener noreferrer"

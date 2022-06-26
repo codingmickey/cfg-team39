@@ -238,9 +238,11 @@ const Header = () => {
 								</Nav.Link>
 							</LinkContainer>
 						)}
-						<LinkContainer to="/login" variant="primary">
+						<LinkContainer to="/campaigns" variant="primary">
 							<Nav.Link>
-								<i className="fas fa-money navbar-icons" /> Campaign
+								<a href="/campaigns" style={{ textDecoration: "none" }}>
+									<i className="fas fa-university navbar-icons" /> Campaign
+								</a>
 							</Nav.Link>
 						</LinkContainer>
 					</Nav>
