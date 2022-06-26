@@ -21,7 +21,7 @@ const RegisterPage = ({ location, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
-  const [org, setOrg] = useState(true);
+  const [org, setOrg] = useState(false);
   const [orgName, setOrgName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -210,6 +210,47 @@ const RegisterPage = ({ location, history }) => {
                 />
               </FloatingLabel>
             </Form.Group>
+            <Form.Check
+              type="switch"
+              id="custom-switch"
+              label="Are you an organization?"
+              onChange={() => {
+                setOrg(!org);
+              }}
+            />
+            {org && (
+              <>
+                <Form.Group controlId="email" className="my-2">
+                  <FloatingLabel
+                    controlId="nameinput"
+                    label="Organization Name"
+                    className="mb-3">
+                    <Form.Control
+                      size="lg"
+                      placeholder="Enter Contact Number"
+                      type="email"
+                      value={contact}
+                      onChange={(e) => setContact(e.target.value)}
+                    />
+                  </FloatingLabel>
+                </Form.Group>
+
+                <Form.Group controlId="email" className="my-2">
+                  <FloatingLabel
+                    controlId="emailinput"
+                    label="Organization Email"
+                    className="mb-3">
+                    <Form.Control
+                      size="lg"
+                      placeholder="Enter Contact Number"
+                      type="email"
+                      value={contact}
+                      onChange={(e) => setContact(e.target.value)}
+                    />
+                  </FloatingLabel>
+                </Form.Group>
+              </>
+            )}
 
             <Row>
               <Col

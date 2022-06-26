@@ -152,6 +152,7 @@ const registerUser = asyncHandler(async (req, res) => {
     avatar,
     contact,
     organization
+    // isAdmin
   });
 
   // if user was created successfully
