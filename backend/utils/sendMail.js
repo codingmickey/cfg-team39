@@ -17,7 +17,7 @@ const sendMail = async (id, email, option) => {
     const mailOptions = {
       from: process.env.EMAIL, // sender address
       to: email,
-      subject: "Confirm your email for Kosells", // Subject line
+      subject: "Confirm your email for Banglore Food Bank", // Subject line
       html: `<div>
 					<h2>Account Created!</h2>
 					Click this link to 
