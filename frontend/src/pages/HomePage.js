@@ -12,6 +12,10 @@ import Message from "../components/Message";
 import SearchBox from "../components/SearchBox";
 import ProductSkeleton from "../components/ProductSkeleton";
 import MultiCarouselPage from "../components/Multi";
+
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+
 const HomePage = ({ match, history }) => {
 	const keyword = match.params.keyword; // to search for products
 	const pageNumber = Number(match.params.pageNumber) || 1; // current page number in the paginated display
@@ -77,6 +81,7 @@ const HomePage = ({ match, history }) => {
 	return (
 		<>
 			<Meta />
+
 			{/* display carousel only on larger screens */}
 			{!keyword ? (
 				window.innerWidth > 430 && <MultiCarouselPage />

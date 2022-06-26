@@ -6,7 +6,63 @@ import { logoutUser } from "../actions/userActions";
 import { Route } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import "../styles/header.css";
+import { QRCode } from "react-qrcode-logo";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import QrCode2Icon from "@mui/icons-material/QrCode2";
+import ShareIcon from "@mui/icons-material/Share";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import AttachEmailIcon from "@mui/icons-material/AttachEmail";
+function qrcard() {
+	return (
+		<Card sx={{ maxWidth: 345 }}>
+			<CardActionArea>
+				{/* <CardMedia
+          component="img"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+          alt="green iguana"
+        /> */}
+				<CardContent>
+					<QRCode value={window.location.href} />
+					{/* <Typography gutterBottom variant="h5" component="div">
+						Lizard
+					</Typography> */}
+					<Typography variant="body2" color="text.secondary"></Typography>
+				</CardContent>
+			</CardActionArea>
+		</Card>
+	);
+}
+
+const ControlledPopup = () => {
+	const [open, setOpen] = useState(false);
+	const closeModal = () => setOpen(false);
+	return (
+		<div>
+			<QrCode2Icon
+				onClick={() => setOpen((o) => !o)}
+				sx={{ backgroundColor: "#fff", cursor: "pointer" }}
+			/>
+			{/* <button type="button" className="button">
+				QR
+			</button> */}
+			<Popup open={open} closeOnDocumentClick onClose={closeModal}>
+				<QRCode value={window.location.href} />
+				Share Via:
+				<WhatsAppIcon sx={{ color: "green", cursor: "pointer", m: 1 }} />
+				<AttachEmailIcon sx={{ color: "red", cursor: "pointer", m: 1 }} />
+				<ShareIcon sx={{ cursor: "pointer" }} />
+			</Popup>
+		</div>
+	);
+};
 const Header = () => {
 	const dispatch = useDispatch();
 	const userLogin = useSelector((state) => state.userLogin);
@@ -89,7 +145,7 @@ const Header = () => {
 								alt="logo"
 								width="2rem"
 							/> */}
-							Banglore Food Bank
+							Bangalore Food Bank
 						</Navbar.Brand>
 					</LinkContainer>
 
@@ -115,6 +171,14 @@ const Header = () => {
 								  }
 						}
 					>
+						{/* <LinkContainer className="d-block d-md-none" to="/admin/userlist">
+							<Popup trigger={<button> QR</button>} position="right center">
+								<div>
+									<QRCode value={window.location.href} />
+								</div>
+							</Popup>
+						</LinkContainer> */}
+
 						{userInfo && userInfo.isAdmin && (
 							<>
 								{/* display this only on mobile screens */}
@@ -188,7 +252,6 @@ const Header = () => {
 								</LinkContainer>
 							</NavDropdown>
 						)}
-
 						{userInfo && (
 							// show this only on mobile screens
 							<Nav.Link className="d-block d-md-none" onClick={handleLogout}>
@@ -196,7 +259,6 @@ const Header = () => {
 								{!(userInfo && userInfo.isAdmin) && "Logout"}
 							</Nav.Link>
 						)}
-
 						{userInfo ? (
 							<div className="nav-avatar-container">
 								{/* show this container only on mobile screens */}
@@ -241,9 +303,12 @@ const Header = () => {
 						<LinkContainer to="/campaigns" variant="primary">
 							<Nav.Link>
 								<a href="/campaigns" style={{ textDecoration: "none" }}>
-									<i className="fas fa-university navbar-icons" /> Campaign
+									<i className="fa fa-university navbar-icons" /> Campaign
 								</a>
 							</Nav.Link>
+						</LinkContainer>
+						<LinkContainer to="/campaigns" variant="primary">
+							<ControlledPopup />
 						</LinkContainer>
 					</Nav>
 				</Container>
