@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Product from "../components/Product";
 import Paginate from "../components/Paginate";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import ProductCarousel from "../components/ProductCarousel";
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
@@ -11,7 +11,7 @@ import { refreshLogin, getUserDetails } from "../actions/userActions";
 import Message from "../components/Message";
 import SearchBox from "../components/SearchBox";
 import ProductSkeleton from "../components/ProductSkeleton";
-
+import MultiCarouselPage from "../components/Multi";
 const HomePage = ({ match, history }) => {
 	const keyword = match.params.keyword; // to search for products
 	const pageNumber = Number(match.params.pageNumber) || 1; // current page number in the paginated display
@@ -76,10 +76,11 @@ const HomePage = ({ match, history }) => {
 
 	return (
 		<>
+		
 			<Meta />
 			{/* display carousel only on larger screens */}
 			{!keyword ? (
-				window.innerWidth > 430 && <ProductCarousel />
+				window.innerWidth > 430 && <MultiCarouselPage />
 			) : (
 				<Link className="btn btn-outline btn-outline-primary my-2" to="/">
 					Go Back

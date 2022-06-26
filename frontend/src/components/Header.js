@@ -70,7 +70,16 @@ const Header = () => {
 			/>
 
 			{/* conditionally render different navbars for the mobile sreens */}
-			<Navbar bg="primary" variant="dark" expand="lg">
+			<Navbar
+				bg="primary"
+				variant="dark"
+				// expand="lg"
+				// sx={{
+				// 	color: "#EB5310",
+				// 	backgroundColor: "#EB5310",
+				// 	borderColor: "#EB5310"
+				// }}
+			>
 				<Container>
 					<LinkContainer to="/">
 						<Navbar.Brand>
@@ -229,6 +238,13 @@ const Header = () => {
 								</Nav.Link>
 							</LinkContainer>
 						)}
+						<LinkContainer to="/campaigns" variant="primary">
+							<Nav.Link>
+								<a href="/campaigns" style={{ textDecoration: "none" }}>
+									<i className="fas fa-university navbar-icons" /> Campaign
+								</a>
+							</Nav.Link>
+						</LinkContainer>
 					</Nav>
 				</Container>
 			</Navbar>
