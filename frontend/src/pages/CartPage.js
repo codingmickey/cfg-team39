@@ -71,7 +71,13 @@ const CartPage = ({ match, location, history }) => {
 	const handleCheckout = (e) => {
 		history.push("/login?redirect=shipping");
 	};
-
+	function increment() {
+		document.getElementById('demoInput').stepUp();
+	 }
+	 function decrement() {
+		document.getElementById('demoInput').stepDown();
+	}
+	
 	return (
 		<Row>
 			<Meta title="My Cart | Kosells" />
@@ -143,11 +149,13 @@ const CartPage = ({ match, location, history }) => {
 												disabled={item.qty >= item.countInStock}
 												onClick={() => {
 													dispatch(addItem(item.product, Number(item.qty + 1)));
+													increment();
 												}}
 												variant="primary"
 											>
 												<i className="fas fa-plus" />
 											</Button>
+											<input id="demoInput" type="number" defaultValue={1} style={{width:"50%"}}></input>
 											<Button
 												style={{
 													outline: "none",
@@ -157,6 +165,7 @@ const CartPage = ({ match, location, history }) => {
 												disabled={item.qty === 1}
 												onClick={() => {
 													dispatch(addItem(item.product, Number(item.qty - 1)));
+													decrement();
 												}}
 											>
 												<i className="fas fa-minus" />
