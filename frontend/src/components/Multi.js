@@ -3,12 +3,10 @@ import Slider from "react-slick";
 import image2 from "../assets/gallery01.jpeg";
 import image1 from "../assets/gallery02.jpeg";
 import image3 from "../assets/gallery03.jpeg";
-import '../styles/multi.css';
+import "../styles/multi.css";
 
 export default class PauseOnHover extends Component {
-	
 	render() {
-		
 		var settings = {
 			dots: true,
 			infinite: true,
@@ -19,10 +17,14 @@ export default class PauseOnHover extends Component {
 			pauseOnHover: true
 		};
 		return (
-			
-			<div style={{ textAlign: "center" }}>
-				<a href="#products"><button class="button-18">DONATE NOW</button></a>
-                
+			// style={{  }}
+			<div style={{ textAlign: "center", textdecoration: "none" }}>
+				<a
+					href="#products"
+					// style="text-decoration: none;"
+				>
+					<button class="button-18">DONATE NOW</button>
+				</a>
 
 				<Slider {...settings}>
 					<div>
@@ -37,7 +39,6 @@ export default class PauseOnHover extends Component {
 						<p className="count">100K+</p>
 						<h1 className="title">No. of People Fed Last month</h1>
 						<p className="count">10K+</p>
-						
 					</div>
 					<div>
 						<img
@@ -60,7 +61,9 @@ export default class PauseOnHover extends Component {
 						/>
 					</div>
 				</Slider>
-				<div className="products" id="products" style={{marginTop: "100px"}}><h1 className="title">Food Items</h1></div>
+				<div className="products" id="products" style={{ marginTop: "100px" }}>
+					<h1 className="title">Food Items</h1>
+				</div>
 			</div>
 		);
 	}
