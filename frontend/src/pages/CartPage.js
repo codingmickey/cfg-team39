@@ -72,6 +72,8 @@ const CartPage = ({ match, location, history }) => {
 		history.push("/login?redirect=shipping");
 	};
 
+	
+
 	return (
 		<Row>
 			<Meta title="My Cart | Kosells" />
@@ -135,6 +137,7 @@ const CartPage = ({ match, location, history }) => {
 										}}
 									>
 										<ButtonGroup aria-label="Addtocart">
+											
 											<Button
 												style={{
 													outline: "none",
@@ -148,6 +151,7 @@ const CartPage = ({ match, location, history }) => {
 											>
 												<i className="fas fa-plus" />
 											</Button>
+											<input id="demoInput" type="number" min="100" max="110">
 											<Button
 												style={{
 													outline: "none",

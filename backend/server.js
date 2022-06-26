@@ -15,6 +15,7 @@ import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 // import campaignRoutes from "./routes/campaignRoutes.js";
+import generatePDF from "./generatePdf.js";
 
 dotenv.config();
 const app = express();
@@ -41,9 +42,32 @@ app.use(compression()); // to use gzip
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
+// app.use("/api/campaign", campaignRoutes);
 // app.use('/api/auth', authRoutes);
 // app.use("/api/config", configRoutes);
 // app.use("/api/upload", uploadRoutes);
+
+// Certificacte
+app.post("/getCertificate", async (req, res) => {
+  // res.send("<h1>Welcome to Full Stack Simplified</h1>");
+  // res.download("output.pdf");
+  try {
+    const { name, email } = req.body;
+    console.log(name, email);
+    generatePDF(name, email);
+    res.download("CertificateOfDonation.pdf");
+    res.status(200).json({
+      success: true,
+      data: "Successfull"
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      success: true,
+      data: error
+    });
+  }
+});
 
 const __dirname = path.resolve();
 
