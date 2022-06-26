@@ -33,71 +33,71 @@ import CreateCampaign from "./components/createCampign/createCampaign";
 import ServiceWorkerWrapper from "./ServiceWorkerWrapper";
 
 const App = () => {
-	return (
-		<Router>
-			<Header />
-			<ServiceWorkerWrapper />
+  return (
+    <Router>
+      <Header />
+      <ServiceWorkerWrapper />
 
-			<main className="py-2">
-				<Container>
-					<Switch>
-						{/*	<Route path="" element={<Allcampaigns />} />
+      <main className="py-2">
+        <Container>
+          <Switch>
+            {/*	<Route path="" element={<Allcampaigns />} />
 						</Route> */}
-						<Route path="/" component={HomePage} exact />
-						<Route path="/campaigns/create" component={CreateCampaign} exact />
-						<Route path="/campaigns" component={Allcampaigns} exact />
-						<Route path="/search/:keyword" component={HomePage} exact />
-						<Route path="/page/:pageNumber" component={HomePage} exact />
-						<Route
-							path="/search/:keyword/page/:pageNumber"
-							exact
-							component={HomePage}
-						/>
-						<Route path="/login" component={LoginPage} />
-						<Route path="/register" component={RegisterPage} />
-						<Route
-							path="/user/password/reset/:token"
-							component={PasswordResetPage}
-						/>
-						<Route path="/profile" component={ProfilePage} />
-						<Route path="/product/:id" component={ProductPage} />
-						<Route path="/cart/:id?" component={CartPage} />
-						<Route path="/user/confirm/:token" component={ConfirmPage} exact />
-						<Route path="/shipping" component={ShippingPage} />
-						<Route path="/payment" component={PaymentPage} />
-						<Route path="/placeorder" component={PlaceOrderPage} />
-						<Route path="/order/:id" component={OrderPage} />
-						<Route path="/admin/userlist" component={UserListPage} exact />
-						<Route
-							path="/admin/userlist/:pageNumber"
-							component={UserListPage}
-							exact
-						/>
-						<Route path="/admin/user/:id/edit" component={UserEditPage} />
-						<Route
-							path="/admin/productlist"
-							exact
-							component={ProductListPage}
-						/>
-						<Route
-							path="/admin/productlist/:pageNumber"
-							component={ProductListPage}
-							exact
-						/>
-						<Route path="/admin/product/:id/edit" component={ProductEditPage} />
-						<Route path="/admin/orderlist" component={OrderListPage} exact />
-						<Route
-							path="/admin/orderlist/:pageNumber"
-							component={OrderListPage}
-							exact
-						/>
-						<Route component={ErrorPage} />
-					</Switch>
-				</Container>
-			</main>
-			<Footer />
-		</Router>
-	);
+            <Route path="/" component={HomePage} exact />
+            <Route path="/campaigns/create" component={CreateCampaign} exact />
+            <Route path="/campaigns" component={Allcampaigns} exact />
+            <Route path="/search/:keyword" component={HomePage} exact />
+            <Route path="/page/:pageNumber" component={HomePage} exact />
+            <Route
+              path="/search/:keyword/page/:pageNumber"
+              exact
+              component={HomePage}
+            />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
+            <Route
+              path="/user/password/reset/:token"
+              component={PasswordResetPage}
+            />
+            <Route path="/profile" component={ProfilePage} />
+            <Route path="/product/:id" component={ProductPage} />
+            <Route path="/cart/:id?" component={CartPage} />
+            <Route path="/user/confirm/:token" component={ConfirmPage} exact />
+            <Route path="/shipping" component={ShippingPage} />
+            <Route path="/payment" component={PaymentPage} />
+            <Route path="/placeorder" component={PlaceOrderPage} />
+            <Route path="/order/:id" component={OrderPage} />
+            <Route path="/admin/userlist" component={UserListPage} exact />
+            <Route
+              path="/admin/userlist/:pageNumber"
+              component={UserListPage}
+              exact
+            />
+            <Route path="/admin/user/:id/edit" component={UserEditPage} />
+            <Route
+              path="/admin/productlist"
+              exact
+              component={ProductListPage}
+            />
+            <Route
+              path="/admin/productlist/:pageNumber"
+              component={ProductListPage}
+              exact
+            />
+            <Route path="/admin/product/:id/edit" component={ProductEditPage} />
+            <Route path="/admin/orderlist" component={OrderListPage} exact />
+            <Route
+              path="/admin/orderlist/:pageNumber"
+              component={OrderListPage}
+              exact
+            />
+            <Route component={ErrorPage} />
+          </Switch>
+        </Container>
+      </main>
+      <Footer />
+    </Router>
+  );
 };
 
 export default App;

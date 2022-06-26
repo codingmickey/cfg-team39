@@ -99,7 +99,7 @@ const ProductListPage = ({ history, match }) => {
                         />
                       )}
                     </td>
-                    <td
+                    {/* <td
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -110,7 +110,7 @@ const ProductListPage = ({ history, match }) => {
                           View Details
                         </Button>
                       </LinkContainer>
-                    </td>
+                    </td> */}
                   </tr>
                 );
               })}

@@ -20,6 +20,9 @@ const RegisterPage = ({ location, history }) => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [org, setOrg] = useState(true);
+  const [orgName, setOrgName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
@@ -193,6 +196,21 @@ const RegisterPage = ({ location, history }) => {
                 </FloatingLabel>
               </InputGroup>
             </Form.Group>
+            <Form.Group controlId="email" className="my-2">
+              <FloatingLabel
+                controlId="emailinput"
+                label="Contact Number"
+                className="mb-3">
+                <Form.Control
+                  size="lg"
+                  placeholder="Enter Contact Number"
+                  type="email"
+                  value={contact}
+                  onChange={(e) => setContact(e.target.value)}
+                />
+              </FloatingLabel>
+            </Form.Group>
+
             <Row>
               <Col
                 style={{
