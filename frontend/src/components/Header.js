@@ -276,7 +276,8 @@ const Header = () => {
                   </Nav.Link>
                 </LinkContainer>
                 <img
-                  src={userInfo.avatar}
+                  // src={userInfo.avatar}
+                  src="https://s.gravatar.com/avatar/684e3da501bf8ec4443a322ba1d1c450?s=200&r=PG&d=identicon"
                   className="nav-avatar d-none d-md-block"
                   alt={userInfo.name}
                 />

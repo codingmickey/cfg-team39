@@ -8,6 +8,7 @@ import Paginate from "../components/Paginate";
 import { refreshLogin } from "../actions/userActions";
 import { listAllOrders } from "../actions/orderActions";
 import getDateString from "../utils/getDateString";
+import { PieChart } from "react-minimal-pie-chart";
 
 const ProductListPage = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1; // to fetch various pages of orders
@@ -37,6 +38,50 @@ const ProductListPage = ({ history, match }) => {
 
   return (
     <>
+      <Row className="align-items-center">
+        <Col>
+          <h1>Based on category</h1>
+
+          <div style={{ width: "10rem" }}>
+            <PieChart
+              data={[
+                { title: "Category 1", value: 10, color: "#E38627" },
+                { title: "Category 2", value: 15, color: "#C13C37" },
+                { title: "Category 3", value: 20, color: "#6A2135" }
+              ]}
+            />
+          </div>
+        </Col>
+        <Col>
+          <h1>Based on Product</h1>
+
+          <div style={{ width: "10rem" }}>
+            <PieChart
+              data={[
+                { title: "Product 1", value: 10, color: "#2274A5" },
+                { title: "Product 2", value: 15, color: "#CC59D2" },
+                { title: "Product 3", value: 3, color: "#F487B6" },
+                { title: "Product 4", value: 2, color: "#2C4251" },
+                { title: "Product 5", value: 2, color: "#000000" }
+              ]}
+            />
+          </div>
+        </Col>
+        <Col>
+          <h1>Based on location</h1>
+
+          <div style={{ width: "10rem" }}>
+            <PieChart
+              data={[
+                { title: "Location 1", value: 10, color: "#CCF5AC" },
+                { title: "Location 2", value: 15, color: "#0C1618" },
+                { title: "Location 3", value: 20, color: "#FFBA49" }
+              ]}
+            />
+          </div>
+        </Col>
+      </Row>
+
       <Row className="align-items-center">
         <Col>
           <h1>All Orders ({`${total || 0}`})</h1>

@@ -31,8 +31,21 @@ import CreateCampaign from "./components/createCampign/createCampaign";
 // import CampaignPage from "./components/campaign";
 // for showing the 'new update available' banner and to register the service worker
 import ServiceWorkerWrapper from "./ServiceWorkerWrapper";
+import alanBtn from "@alan-ai/alan-sdk-web";
 
 const App = () => {
+  React.useEffect(() => {
+    alanBtn({
+      key: "6a35a5f04a43bcf4fcd818ca1c3f704d2e956eca572e1d8b807a3e2338fdd0dc/stage",
+      onCommand: (commandData) => {
+        if (commandData.command === "login") {
+          // Call the client code that will react to the received command
+          // <Redirect to="/campaigns" />;
+          //   history.push("/login");
+        }
+      }
+    });
+  }, []);
   return (
     <Router>
       <Header />

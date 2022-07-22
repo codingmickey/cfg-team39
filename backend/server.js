@@ -48,6 +48,33 @@ app.use("/api/orders", orderRoutes);
 // app.use('/api/auth', authRoutes);
 // app.use("/api/config", configRoutes);
 // app.use("/api/upload", uploadRoutes);
+app.use("/api/game", (req, res) => {
+  let game = ["r", "p", , "s"];
+  let score = {};
+  for (let i = 0; i < 50; i++) {
+    let round = [];
+    for (let j = 0; j < 4; j++) {
+      round[j] = game[Math.floor(Math.random() * game.length)];
+    }
+    let tempScore = {};
+    for (let j = 0; j < 4; j++) {
+      let userScore = [];
+      for (let k = 0; k < 4; k++) {
+        let val = 1;
+        if (j != k) {
+          // if (round[j] == "r" && round[k] == "p") {
+          // } else {
+          // }
+        }
+        userScore.push(val);
+      }
+      console.log(userScore);
+      tempScore[`user${j + 1}`] = userScore;
+    }
+    score[`${i + 1}`] = tempScore;
+  }
+  res.json(score);
+});
 
 // Certificacte
 app.post("/getCertificate", async (req, res) => {
